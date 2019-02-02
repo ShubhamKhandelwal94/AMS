@@ -31,14 +31,16 @@ the License.
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffffff">
+        android:background="#ffffff"
+        android:layout_below="@+id/toolbar">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/home_screen_logo"
             android:alpha="0.2"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"
+            android:padding="30dp"/>
 
     <LinearLayout
         android:id="@+id/questionholder"
@@ -56,29 +58,38 @@ the License.
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
         android:orientation="horizontal"
-        android:paddingBottom="0dip"
-        android:paddingEnd="4dip"
-        android:paddingLeft="4dip"
-        android:paddingRight="4dip"
-        android:paddingStart="4dip"
-        android:paddingTop="4dip">
+        android:paddingTop="4dip"
+        android:paddingBottom="0dip">
 
-        <ImageButton
+        <TextView
             android:id="@+id/form_back_button"
             android:layout_width="0dip"
-            android:layout_height="50dip"
+            android:layout_height="40dip"
             android:layout_weight="1"
-            android:contentDescription="@string/form_backward"
-            android:src="@drawable/navigate_back_button"/>
+            android:gravity="center"
+            android:text="@string/form_backward"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/browser_actions_divider_color"/>
 
-        <ImageButton
+        <TextView
             android:id="@+id/form_forward_button"
             android:layout_width="0dip"
-            android:layout_height="50dip"
+            android:layout_height="40dip"
             android:layout_weight="1"
-            android:contentDescription="@string/form_forward"
-            android:src="@drawable/navigate_forward_button"/>
+            android:background="@color/lightAccentColor"
+            android:gravity="center"
+            android:text="@string/form_forward"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="5dp"/>
     </LinearLayout>
 
 </RelativeLayout>

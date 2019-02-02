@@ -252,8 +252,8 @@ public class FormEntryActivity extends CollectAbstractActivity implements Animat
     private FormLoaderTask formLoaderTask;
     private SaveToDiskTask saveToDiskTask;
 
-    private ImageButton nextButton;
-    private ImageButton backButton;
+    private TextView nextButton;
+    private TextView backButton;
 
     private ODKView odkView;
     private boolean doSwipe = true;

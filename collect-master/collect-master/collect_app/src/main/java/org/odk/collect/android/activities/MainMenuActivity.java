@@ -38,6 +38,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
@@ -82,10 +83,13 @@ public class MainMenuActivity extends CollectAbstractActivity {
     private static final boolean EXIT = true;
     // buttons
     private Button manageFilesButton;
-    private Button sendDataButton;
-    private Button viewSentFormsButton;
+    private LinearLayout sendDataButton;
+    private LinearLayout viewSentFormsButton;
+    private TextView send_form_tv;
+    private TextView view_history_tv;
+    private TextView get_form_tv;
     private Button reviewDataButton;
-    private Button getFormsButton;
+    private LinearLayout getFormsButton;
     private View reviewSpacer;
     private View getFormsSpacer;
     private AlertDialog alertDialog;
@@ -113,9 +117,11 @@ public class MainMenuActivity extends CollectAbstractActivity {
         setContentView(R.layout.main_menu);
         initToolbar();
 
+
         // enter data button. expects a result.
-        Button enterDataButton = findViewById(R.id.enter_data);
-        enterDataButton.setText(getString(R.string.enter_data_button));
+        LinearLayout enterDataButton = findViewById(R.id.enter_data);
+        TextView fill_form_tv = findViewById(R.id.fill_form_tv);
+        fill_form_tv.setText(getString(R.string.enter_data_button));
         enterDataButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,7 +150,8 @@ public class MainMenuActivity extends CollectAbstractActivity {
 
         // send data button. expects a result.
         sendDataButton = findViewById(R.id.send_data);
-        sendDataButton.setText(getString(R.string.send_data_button));
+        send_form_tv = findViewById(R.id.send_form_tv);
+        send_form_tv.setText(getString(R.string.send_data_button));
         sendDataButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -158,6 +165,7 @@ public class MainMenuActivity extends CollectAbstractActivity {
 
         //View sent forms
         viewSentFormsButton = findViewById(R.id.view_sent_forms);
+        view_history_tv = findViewById(R.id.view_history_tv);
         viewSentFormsButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,7 +180,8 @@ public class MainMenuActivity extends CollectAbstractActivity {
 
         // manage forms button. no result expected.
         getFormsButton = findViewById(R.id.get_forms);
-        getFormsButton.setText(getString(R.string.get_forms));
+        get_form_tv = findViewById(R.id.get_form_tv);
+        get_form_tv.setText(getString(R.string.get_forms));
         getFormsButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -226,8 +235,8 @@ public class MainMenuActivity extends CollectAbstractActivity {
         {
             // dynamically construct the "ODK Collect vA.B" string
             TextView mainMenuMessageLabel = findViewById(R.id.main_menu_header);
-            mainMenuMessageLabel.setText(Collect.getInstance()
-                    .getVersionedAppName());
+            /*mainMenuMessageLabel.setText(Collect.getInstance()
+                    .getVersionedAppName());*/
         }
 
         File f = new File(Collect.ODK_ROOT + "/collect.settings");
@@ -531,13 +540,13 @@ public class MainMenuActivity extends CollectAbstractActivity {
             finalizedCursor.requery();
             completedCount = finalizedCursor.getCount();
             if (completedCount > 0) {
-                sendDataButton.setText(
+                send_form_tv.setText(
                         getString(R.string.send_data_button, String.valueOf(completedCount)));
             } else {
-                sendDataButton.setText(getString(R.string.send_data));
+                send_form_tv.setText(getString(R.string.send_data));
             }
         } else {
-            sendDataButton.setText(getString(R.string.send_data));
+            send_form_tv.setText(getString(R.string.send_data));
             Timber.w("Cannot update \"Send Finalized\" button label since the database is closed. "
                     + "Perhaps the app is running in the background?");
         }
@@ -561,13 +570,13 @@ public class MainMenuActivity extends CollectAbstractActivity {
             viewSentCursor.requery();
             viewSentCount = viewSentCursor.getCount();
             if (viewSentCount > 0) {
-                viewSentFormsButton.setText(
+                view_history_tv.setText(
                         getString(R.string.view_sent_forms_button, String.valueOf(viewSentCount)));
             } else {
-                viewSentFormsButton.setText(getString(R.string.view_sent_forms));
+                view_history_tv.setText(getString(R.string.view_sent_forms));
             }
         } else {
-            viewSentFormsButton.setText(getString(R.string.view_sent_forms));
+            view_history_tv.setText(getString(R.string.view_sent_forms));
             Timber.w("Cannot update \"View Sent\" button label since the database is closed. "
                     + "Perhaps the app is running in the background?");
         }
