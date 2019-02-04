@@ -70,7 +70,7 @@ public final class GeneralKeys {
     static final String KEY_AUTOSEND_NETWORK                = "autosend_network";
 
     // values
-    public static final String NAVIGATION_SWIPE             = "swipe";
+    public static final String NAVIGATION_SWIPE             = "swipe_buttons";
     public static final String CONSTRAINT_BEHAVIOR_ON_SWIPE = "on_swipe";
     public static final String NAVIGATION_BUTTONS           = "buttons";
     private static final String GOOGLE_MAPS                 = "google_maps";

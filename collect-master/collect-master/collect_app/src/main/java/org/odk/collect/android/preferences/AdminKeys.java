@@ -55,7 +55,7 @@ public final class AdminKeys {
 
     private static final String KEY_AUTOSEND                    = "change_autosend";
 
-    private static final String KEY_NAVIGATION                  = "change_navigation";
+    private static final String KEY_NAVIGATION                  = "";
     static final String KEY_CONSTRAINT_BEHAVIOR                 = "change_constraint_behavior";
 
     private static final String KEY_SHOW_MAP_SDK                = "show_map_sdk";

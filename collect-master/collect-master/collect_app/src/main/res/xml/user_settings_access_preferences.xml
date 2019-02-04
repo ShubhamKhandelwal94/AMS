@@ -16,7 +16,7 @@
             android:key="change_autosend"
             android:title="@string/autosend" />
         <CheckBoxPreference
-            android:key="change_navigation"
+            android:key=""
             android:title="@string/navigation" />
         <CheckBoxPreference
             android:key="change_constraint_behavior"
